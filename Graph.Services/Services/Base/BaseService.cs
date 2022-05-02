@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Graph.DataAccess.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,10 @@ namespace Graph.Services.Services.Base
 {
     public class BaseService
     {
-        public BaseService()
+        public IRepository _repo;
+        public BaseService(IRepository repo)
         {
-
+            _repo = repo;
         }
     }
 }

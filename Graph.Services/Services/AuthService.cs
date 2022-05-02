@@ -1,4 +1,7 @@
 ﻿using Graph.Common.Models;
+using Graph.DataAccess.Interfaces;
+using Graph.Services.Interfaces;
+using Graph.Services.Services.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +11,10 @@ using System.Threading.Tasks;
 
 namespace Graph.Services.Services
 {
-    public class AuthService
+    public class AuthService: BaseService, IAuthService
     {
-        public AuthService()
+        public AuthService(IRepository repo)
+            :base(repo)
         {
 
         }

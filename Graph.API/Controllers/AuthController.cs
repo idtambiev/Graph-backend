@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Graph.Common.Models;
+using Graph.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -8,19 +10,24 @@ namespace Graph.API.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        public AuthController()
+        private readonly IAuthService _service;
+        public AuthController(IAuthService service)
         {
-
+            _service = service;
         }
 
-        public async Task<IActionResult> Login()
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody]LoginModel model)
         {
-            return Ok();
+            var result = await _service.Login(model);
+            return Ok(result);
         }
 
-        public async Task<IActionResult> Registration()
+        [HttpPost("registration")]
+        public async Task<IActionResult> Registration([FromBody]RegistrationModel model)
         {
-            return Ok();
+            var result = await _service.Registration(model);
+            return Ok(result);
         }
 
         public async Task<IActionResult> ForgotPassword()

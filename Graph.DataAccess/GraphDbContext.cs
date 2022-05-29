@@ -12,7 +12,7 @@ namespace Graph.DataAccess
     public class GraphDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<Data.Entities.Graph> Graphs { get; set; }
+        public DbSet<Data.Entities.GraphEntity> Graphs { get; set; }
         public DbSet<Block> Blocks { get; set; }
         public DbSet<Relation> Relations { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }

@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Graph.DataAccess.Configuration
 {
-    public class GraphConfiguration : IEntityTypeConfiguration<Data.Entities.Graph>
+    public class GraphConfiguration : IEntityTypeConfiguration<Data.Entities.GraphEntity>
     {
-        public void Configure(EntityTypeBuilder<Data.Entities.Graph> builder)
+        public void Configure(EntityTypeBuilder<Data.Entities.GraphEntity> builder)
         {
             builder.HasKey(x => x.Id);
 

@@ -18,7 +18,7 @@ namespace Graph.Data.Entities
         public DateTime UpdatedDate { get; set; }
         public bool IsActive { get; set; }
         public RefreshToken RefreshToken { get; set; }
-        public List<Graph> Graphs { get; set; }
+        public List<GraphEntity> Graphs { get; set; }
 
     }
 

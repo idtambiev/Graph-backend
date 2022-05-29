@@ -11,5 +11,6 @@ namespace Graph.Services.Interfaces
     public interface IGraphService
     {
         Task<ListResult<GraphItemDTO>> GetGraphsList(string userId);
+        Task CreateGraph(string userId, CreateGraphDTO dto);
     }
 }

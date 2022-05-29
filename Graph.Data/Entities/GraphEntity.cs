@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Graph.Data.Entities
 {
-    public class Graph: IEntityWithId, IBase
+    public class GraphEntity: IEntityWithId, IBase
     {
         public int Id { get; set; }
         public Guid UserId { get; set; }
@@ -17,5 +17,19 @@ namespace Graph.Data.Entities
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
         public bool IsActive { get; set; }
+
+        public GraphEntity Create(string userId, string name)
+        {
+            GraphEntity graph = new GraphEntity() 
+            { 
+                UserId = Guid.Parse(userId),
+                Name = name,
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now,
+                IsActive = true,
+            };
+
+            return graph;
+        }
     }
 }

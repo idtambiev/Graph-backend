@@ -3,9 +3,8 @@ using Graph.DataAccess.Interfaces;
 using Graph.Services.DTOs;
 using Graph.Services.Interfaces;
 using Graph.Services.Services.Base;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
+using Graph.Data.Entities;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +34,13 @@ namespace Graph.Services.Services
 
 
             return result;
+        }
+
+        public async Task CreateGraph(string userId, CreateGraphDTO dto)
+        {
+            GraphEntity graph = new GraphEntity().Create(userId, dto.Name);
+            await _repo.Context.Graphs.AddAsync(graph);
+            await _repo.Context.SaveChangesAsync();
         }
     }
 }

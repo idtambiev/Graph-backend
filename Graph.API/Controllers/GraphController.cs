@@ -1,4 +1,5 @@
 ﻿using Graph.API.Controllers.Base;
+using Graph.Services.DTOs;
 using Graph.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -25,6 +26,15 @@ namespace Graph.API.Controllers
             var result = await _graphService.GetGraphsList(userId);
 
             return Ok(result);
+        }
+
+        [HttpPost("create")]
+        [Authorize]
+        public async Task<IActionResult> CreateGraph([FromBody] CreateGraphDTO dto)
+        {
+            var userId = GetUserId();
+            await _graphService.CreateGraph(userId, dto);
+            return Ok();
         }
     }
 }

@@ -16,6 +16,6 @@ namespace Graph.Data.Entities
         public DateTime UpdatedDate { get; set; }
         public bool IsActive { get; set; }
         public List<Relation> Relations { get; set; }
-        public Graph Graph { get; set; }
+        public GraphEntity Graph { get; set; }
     }
 }

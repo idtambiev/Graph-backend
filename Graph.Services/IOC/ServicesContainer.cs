@@ -17,7 +17,8 @@ namespace Graph.Services.IOC
         {
             RepositoryContainer.Configure(services, configuration);
 
-            services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<IAuthService, AuthService>()
+                    .AddTransient<IGraphService, GraphService>();
             return services;
         }
     }

@@ -11,6 +11,7 @@ namespace Graph.Data.Entities
     {
         public int Id { get; set; }
         public Guid UserId { get; set; }
+        public string Name { get; set; }
         public List<Block> Blocks { get; set; }
         public User User { get; set; }
         public DateTime CreatedDate { get; set; }

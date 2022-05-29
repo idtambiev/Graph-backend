@@ -1,4 +1,5 @@
-﻿using Graph.Common.Models;
+﻿using Graph.API.Controllers.Base;
+using Graph.Common.Models;
 using Graph.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -9,7 +10,7 @@ namespace Graph.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthController : BaseController
     {
         private readonly IAuthService _service;
         public AuthController(IAuthService service)
@@ -35,6 +36,7 @@ namespace Graph.API.Controllers
         [Authorize]
         public async Task<IActionResult> TestAuthorize()
         {
+            var str = GetUserId();
             return Ok();
         }
 

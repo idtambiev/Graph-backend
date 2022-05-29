@@ -95,8 +95,8 @@ namespace Graph.Services.Services
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                     {
-                        //new Claim(ClaimTypes.Name, user.FirstName),
                         new Claim(ClaimTypes.Email, user.Email),
+                        new Claim(ClaimTypes.UserData, user.Id.ToString()),
                     }),
                     Expires = DateTime.UtcNow.AddDays(30),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)

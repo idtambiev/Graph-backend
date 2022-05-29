@@ -31,6 +31,7 @@ namespace Graph.API
         public void ConfigureServices(IServiceCollection services)
         {
             ServicesContainer.Configure(services, Configuration);
+            var Key = Encoding.UTF8.GetBytes(Configuration["JWT:Key"]);
 
             services.AddAuthentication(x =>
             {
@@ -38,18 +39,22 @@ namespace Graph.API
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(o =>
             {
-                var Key = Encoding.UTF8.GetBytes(Configuration["JWT:Key"]);
-                o.SaveToken = true;
+                //o.SaveToken = true;
                 o.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = false,
                     ValidateAudience = false,
-                    ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = Configuration["JWT:Issuer"],
-                    ValidAudience = Configuration["JWT:Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(Key)
                 };
+            });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
             });
 
             services.AddControllers();
@@ -67,8 +72,10 @@ namespace Graph.API
 
             app.UseRouting();
 
+            app.UseCors("CorsPolicy");
+
+            app.UseAuthentication();
             app.UseAuthorization();
-            app.UseAuthentication(); 
 
             app.UseEndpoints(endpoints =>
             {

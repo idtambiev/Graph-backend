@@ -1,5 +1,6 @@
 ﻿using Graph.Common.Models;
 using Graph.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -29,6 +30,14 @@ namespace Graph.API.Controllers
             var result = await _service.Registration(model);
             return Ok(result);
         }
+
+        [HttpGet("test")]
+        [Authorize]
+        public async Task<IActionResult> TestAuthorize()
+        {
+            return Ok();
+        }
+
 
         public async Task<IActionResult> ForgotPassword()
         {

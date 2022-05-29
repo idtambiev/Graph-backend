@@ -74,8 +74,9 @@ namespace Graph.Services.Services
                 if (!verified)
                 {
                     throw new Exception("Incorrect email or password");
-                } 
-                return await GenerateToken(existedUser);
+                }
+                var tokens = await GenerateToken(existedUser);
+                return tokens;
             }
             catch (Exception ex)
             {
@@ -94,8 +95,8 @@ namespace Graph.Services.Services
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                     {
-                        new Claim(ClaimTypes.Name, user.FirstName),
-                        new Claim(ClaimTypes.Email, user.Email)
+                        //new Claim(ClaimTypes.Name, user.FirstName),
+                        new Claim(ClaimTypes.Email, user.Email),
                     }),
                     Expires = DateTime.UtcNow.AddDays(30),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)

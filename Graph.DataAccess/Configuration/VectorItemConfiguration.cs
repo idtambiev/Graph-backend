@@ -9,21 +9,16 @@ using System.Threading.Tasks;
 
 namespace Graph.DataAccess.Configuration
 {
-    public class RelationConfiguration : IEntityTypeConfiguration<Relation>
+    public class VectorItemConfiguratioin : IEntityTypeConfiguration<VectorItem>
     {
-        public void Configure(EntityTypeBuilder<Relation> builder)
+        public void Configure(EntityTypeBuilder<VectorItem> builder)
         {
             builder.HasKey(x => x.Id);
 
-            builder.HasOne(x => x.Block)
-                .WithMany(x => x.Relations)
-                .HasForeignKey(x => x.BlockId)
+            builder.HasOne(x => x.Vector)
+                .WithMany(x => x.VectorItems)
+                .HasForeignKey(x => x.VectorId)
                 .OnDelete(DeleteBehavior.NoAction);
-
-            builder.Property(x => x.VectorId)
-                .HasDefaultValue(null)
-                .IsRequired(false);
-
         }
     }
 }

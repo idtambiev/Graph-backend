@@ -12,5 +12,8 @@ namespace Graph.Services.Interfaces
     {
         Task<ListResult<GraphItemDTO>> GetGraphsList(string userId);
         Task CreateGraph(string userId, CreateGraphDTO dto);
+        Task<GetGraphDTO> GetGraphById(int id);
+        Task SaveGraph(string userId, SaveGraphDTO dto);
+        Task DeleteGraph(int id);
     }
 }

@@ -13,6 +13,7 @@ namespace Graph.Data.Entities
         public Guid UserId { get; set; }
         public string Name { get; set; }
         public List<Block> Blocks { get; set; }
+        public List<Vector> Vectors { get; set; }
         public User User { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }

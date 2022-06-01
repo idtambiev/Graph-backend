@@ -16,6 +16,8 @@ namespace Graph.DataAccess
         public DbSet<Block> Blocks { get; set; }
         public DbSet<Relation> Relations { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
+        public DbSet<Vector> Vectors { get; set; }
+        public DbSet<VectorItem> VectorItems { get; set; }
 
         public GraphDbContext(DbContextOptions<GraphDbContext> options)
             :base(options)
@@ -31,7 +33,9 @@ namespace Graph.DataAccess
                 .ApplyConfiguration(new GraphConfiguration())
                 .ApplyConfiguration(new BlockConfiguration())
                 .ApplyConfiguration(new RelationConfiguration())
-                .ApplyConfiguration(new RefreshTokenConfiguration());
+                .ApplyConfiguration(new RefreshTokenConfiguration())
+                .ApplyConfiguration(new VectorConfiguration())
+                .ApplyConfiguration(new VectorItemConfiguratioin());
 
 
         }

@@ -12,6 +12,7 @@ namespace Graph.Data.Entities
     {
         public int Id { get; set; }
         public RelationType Type { get; set; }
+        public string Value { get; set; }
         public double Weight { get; set; }
         public int VectorId { get; set; }
         public bool VectorTowards { get; set; }

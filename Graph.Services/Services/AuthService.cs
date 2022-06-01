@@ -1,4 +1,5 @@
-﻿using BCrypt.Net;
+﻿using AutoMapper;
+using BCrypt.Net;
 using Graph.Common.Models;
 using Graph.Data.Entities;
 using Graph.DataAccess.Interfaces;
@@ -21,8 +22,8 @@ namespace Graph.Services.Services
     public class AuthService: BaseService, IAuthService
     {
         private readonly IConfiguration _configuration;
-        public AuthService(IRepository repo, IConfiguration configuration)
-            :base(repo)
+        public AuthService(IRepository repo, IConfiguration configuration, IMapper mapper)
+            :base(repo, mapper)
         {
             _configuration = configuration;
         }

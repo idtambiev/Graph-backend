@@ -16,11 +16,11 @@ namespace Graph.Services.Services
 {
     public class GraphService : BaseService, IGraphService
     {
-        private readonly IMapper _mapper;
+        //private readonly IMapper _mapper;
         public GraphService(IRepository repo, IMapper mapper)
-            : base(repo)
+            : base(repo, mapper)
         {
-            _mapper = mapper;
+            //_mapper = mapper;
         }
 
         public async Task<ListResult<GraphItemDTO>> GetGraphsList(string userId)

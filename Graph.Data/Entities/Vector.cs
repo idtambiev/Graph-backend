@@ -11,6 +11,7 @@ namespace Graph.Data.Entities
     {
         public int Id { get; set; }
         public int GraphId { get; set; }
+        public string Value { get; set; }
         public List<VectorItem> VectorItems { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }

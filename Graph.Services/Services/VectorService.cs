@@ -34,7 +34,7 @@ namespace Graph.Services.Services
         {
             var list = await _repo.Context.Vectors
                 .Include(x => x.VectorItems)
-                .Where(x => x.GraphId == graphId)
+                .Where(x => x.RelationId == graphId)
                 .ToListAsync();
 
             var mapperResult = _mapper.Map<List<VectorDTO>>(list);

@@ -9,7 +9,7 @@ namespace Graph.Services.DTOs.Vector
 {
     public class CreateVectorDTO
     {
-        public int GraphId { get; set; }
+        public int RelationId { get; set; }
         public string Value { get; set; }
         public List<CreateVectorItemDTO> Items { get; set; }
     }

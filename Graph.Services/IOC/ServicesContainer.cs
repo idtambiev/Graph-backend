@@ -22,7 +22,9 @@ namespace Graph.Services.IOC
 
             services.AddTransient<IAuthService, AuthService>()
                     .AddTransient<IGraphService, GraphService>()
-                    .AddTransient<IVectorService, VectorService>();
+                    .AddTransient<IVectorService, VectorService>()
+                    .AddTransient<IVertexService, VertexService>()
+                    .AddTransient<IEdgeService, EdgeService>();
 
             var mappingConfig = new MapperConfiguration(mc =>
             {

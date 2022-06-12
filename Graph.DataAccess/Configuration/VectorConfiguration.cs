@@ -15,9 +15,9 @@ namespace Graph.DataAccess.Configuration
         {
             builder.HasKey(x => x.Id);
 
-            builder.HasOne(x => x.GraphEntity)
-                .WithMany(x => x.Vectors)
-                .HasForeignKey(x => x.GraphId)
+            builder.HasOne(x => x.Relation)
+                .WithOne(x => x.Vector)
+                .HasForeignKey<Vector>(x => x.RelationId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.VectorItems)

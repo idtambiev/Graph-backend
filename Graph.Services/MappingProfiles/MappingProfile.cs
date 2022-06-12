@@ -23,7 +23,8 @@ namespace Graph.Services.MappingProfiles
                 .ForMember(dest => dest.Value, y => y.MapFrom(src => src.Value))
                 .ForMember(dest => dest.GraphId, y => y.MapFrom(src => src.GraphId))
                 .ForMember(dest => dest.IsNewBlock, y => y.MapFrom(src => false))
-                .ForMember(dest => dest.Relations, y => y.MapFrom(src => src.Relations));
+                .ForMember(dest => dest.Relations, y => y.MapFrom(src => src.Relations))
+                .ForMember(dest => dest.Number, y => y.MapFrom(src => Int32.Parse(src.Value.Split(new[] { "gv" }, StringSplitOptions.None)[1])));
 
             CreateMap<Relation, GetRelationDTO>()
                 .ForMember(dest => dest.Id, y => y.MapFrom(src => src.Id))
@@ -37,13 +38,14 @@ namespace Graph.Services.MappingProfiles
                 .ForMember(dest => dest.RelatedId, y => y.MapFrom(src => src.RelatedBlockId))
                 .ForMember(dest => dest.Type, y => y.MapFrom(src => src.Type))
                 .ForMember(dest => dest.Weight, y => y.MapFrom(src => src.Weight))
+                .ForMember(dest => dest.VectorId, y => y.MapFrom(src => src.VectorId))
                 .ForMember(dest => dest.CreatedDate, y => y.MapFrom(src => DateTime.Now))
                 .ForMember(dest => dest.UpdatedDate, y => y.MapFrom(src => DateTime.Now))
                 .ForMember(dest => dest.IsActive, y => y.MapFrom(src => true));
 
 
             CreateMap<CreateVectorDTO, Vector>()
-                .ForMember(dest => dest.GraphId, y => y.MapFrom(src => src.GraphId))
+                .ForMember(dest => dest.RelationId, y => y.MapFrom(src => src.RelationId))
                 .ForMember(dest => dest.Value, y => y.MapFrom(src => src.Value))
                 .ForMember(dest => dest.VectorItems, y => y.MapFrom(src => src.Items))
                 .ForMember(dest => dest.CreatedDate, y => y.MapFrom(src => DateTime.Now))

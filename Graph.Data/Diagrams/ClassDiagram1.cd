@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Graph.Data.Entities.Block">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACAAAAAAAAAAAAEAAAAAAAAAgAAEgAAgAgAAIAAAA=</HashCode>
+      <FileName>Entities\Block.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Relations" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Data.Entities.GraphEntity">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAHAAAAAAAAAAAAEAAAAAwAAAAAAEAAAgAAAAIAAAA=</HashCode>
+      <FileName>Entities\GraphEntity.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Blocks" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Data.Entities.RefreshToken">
+    <Position X="2.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAAAAAAEAAAAAgAAAAAAAAAAgAAAAIBAAA=</HashCode>
+      <FileName>Entities\RefreshToken.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Data.Entities.Relation">
+    <Position X="10.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAAAAAAAAAAAAEABAAAAAACAAAEAAA0AAAAIAAAg=</HashCode>
+      <FileName>Entities\Relation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Vector" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Data.Entities.User">
+    <Position X="0.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAEAAQCAAAAAAEAAAAAAAAAAAAAgAAgAAAAIAAAg=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RefreshToken" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Graphs" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Data.Entities.Vector">
+    <Position X="8.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAIAAAAAAAAAEAAAAAAAAAgAAAAAAgAgAAIAAAA=</HashCode>
+      <FileName>Entities\Vector.cs</FileName>
+      <NewMemberFileName>Entities\Vectors\Vector.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Graph.Data.Entities.VectorItem">
+    <Position X="12.5" Y="4.25" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAEAAAAAAAACAAAAAAA0AgAAIAAAg=</HashCode>
+      <FileName>Entities\Vectors\VectorItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

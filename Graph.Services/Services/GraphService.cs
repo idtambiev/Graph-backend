@@ -50,8 +50,8 @@ namespace Graph.Services.Services
         public async Task<GetGraphDTO> GetGraphById(int id)
         {
             var graphEntity = await _repo.Context.Graphs
-                .Include(x => x.Blocks)
-                .ThenInclude(x => x.Relations)
+                .Include(x => x.Blocks.OrderBy(y=> y.Value))
+                .ThenInclude(x => x.Relations.Where(y => y.IsActive))
                 .FirstOrDefaultAsync(x => x.Id == id && x.IsActive);
 
             if (graphEntity == null)
@@ -62,6 +62,8 @@ namespace Graph.Services.Services
             var result = _mapper.Map<GetGraphDTO>(graphEntity);
 
             result.Blocks = _mapper.Map<List<GetBlockDTO>>(graphEntity.Blocks);
+
+            //result.Blocks.Sort(x => x.Number);
             
             return result;
         }

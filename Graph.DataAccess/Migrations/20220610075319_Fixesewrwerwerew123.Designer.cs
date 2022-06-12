@@ -4,14 +4,16 @@ using Graph.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Graph.DataAccess.Migrations
 {
     [DbContext(typeof(GraphDbContext))]
-    partial class GraphDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220610075319_Fixesewrwerwerew123")]
+    partial class Fixesewrwerwerew123
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

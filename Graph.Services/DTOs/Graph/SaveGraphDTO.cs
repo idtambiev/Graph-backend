@@ -26,8 +26,10 @@ namespace Graph.Services.DTOs
         public int Id { get; set; }
         public int BlockId { get; set; }
         public int RelatedBlockId { get; set; }
+        public int? VectorId { get; set; }
         public double Weight { get; set; }
-        public RelationType Type { get; set; }
+        public string Type { get; set; }
         public bool IsNew { get; set; }
+        public bool Oriented { get; set; }
     }
 }

@@ -25,11 +25,6 @@ namespace Graph.DataAccess.Configuration
                 .HasForeignKey(x => x.UserId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            builder.HasMany(x => x.Vectors)
-                .WithOne()
-                .HasForeignKey(x => x.GraphId)
-                .OnDelete(DeleteBehavior.Cascade);
-
         }
     }
 }

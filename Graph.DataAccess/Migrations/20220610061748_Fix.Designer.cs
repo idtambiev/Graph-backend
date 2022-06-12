@@ -4,14 +4,16 @@ using Graph.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Graph.DataAccess.Migrations
 {
     [DbContext(typeof(GraphDbContext))]
-    partial class GraphDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220610061748_Fix")]
+    partial class Fix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -123,9 +125,6 @@ namespace Graph.DataAccess.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("Oriented")
-                        .HasColumnType("bit");
-
                     b.Property<int>("RelatedId")
                         .HasColumnType("int");
 
@@ -134,9 +133,6 @@ namespace Graph.DataAccess.Migrations
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("VectorId")
                         .HasColumnType("int");

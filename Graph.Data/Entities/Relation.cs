@@ -15,14 +15,17 @@ namespace Graph.Data.Entities
         public int RelatedId { get; set; }
         public int? VectorId { get; set; }
         public double Weight { get; set; }
-        public RelationType Type { get; set; }
+        public string Type { get; set; }
+        public bool Oriented { get; set; }
+        public string Value { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
         public bool IsActive { get; set; }
         public virtual Block Block { get; set; }
+        public virtual Vector Vector { get; set; }
 
 
-        public Relation Create(int blockId, int relatedId, double weight, RelationType type)
+        public Relation Create(int blockId, int relatedId, double weight, string type)
         {
             Relation relation = new Relation()
             {

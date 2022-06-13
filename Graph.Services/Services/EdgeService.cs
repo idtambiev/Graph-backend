@@ -21,10 +21,11 @@ namespace Graph.Services.Services
 
         public async Task CreateEdge(CreateEdgeDTO dto)
         {
-            //var newRelation = new Relation().Create(dto);
+            var newRelation = new Relation()
+                .Create(dto.BlockId, dto.RelatedId, dto.Weight, dto.Type, dto.Value);
 
-            //await _repo.Context.Relations.AddAsync(newRelation);
-            //await _repo.Context.SaveChangesAsync();
+            await _repo.Context.Relations.AddAsync(newRelation);
+            await _repo.Context.SaveChangesAsync();
         }
     }
 }

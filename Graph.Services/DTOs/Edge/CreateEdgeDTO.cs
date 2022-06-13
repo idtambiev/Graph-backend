@@ -13,6 +13,7 @@ namespace Graph.Services.DTOs.Edge
         public double Weight { get; set; }
         public string Type { get; set; }
         public bool Oriented { get; set; }
+        public string Value { get; set; }
         public int? VectorId { get; set; }
     }
 }

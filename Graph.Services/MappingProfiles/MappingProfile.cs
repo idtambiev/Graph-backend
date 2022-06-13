@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Graph.Data.Entities;
 using Graph.Services.DTOs;
+using Graph.Services.DTOs.Edge;
 using Graph.Services.DTOs.Vector;
 using Graph.Services.DTOs.Vertex;
 using System;

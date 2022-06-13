@@ -25,7 +25,7 @@ namespace Graph.Data.Entities
         public virtual Vector Vector { get; set; }
 
 
-        public Relation Create(int blockId, int relatedId, double weight, string type)
+        public Relation Create(int blockId, int relatedId, double weight, string type, string value)
         {
             Relation relation = new Relation()
             {
@@ -36,6 +36,7 @@ namespace Graph.Data.Entities
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now,
                 IsActive = true,
+                Value = value
             };
 
             return relation;

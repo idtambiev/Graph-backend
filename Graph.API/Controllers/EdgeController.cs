@@ -24,6 +24,7 @@ namespace Graph.API.Controllers
         [Authorize]
         public async Task<IActionResult> CreateVertex([FromBody]CreateEdgeDTO dto)
         {
+            await _service.CreateEdge(dto);
             return Ok();
         }
     }

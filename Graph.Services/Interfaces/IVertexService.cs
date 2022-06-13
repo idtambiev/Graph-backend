@@ -10,5 +10,7 @@ namespace Graph.Services.Interfaces
     public interface IVertexService
     {
         Task CreateVertex(CreateVertexDTO dto);
+        Task SaveCoordinates(CoordinatesDTO dto);
+        Task<CoordinatesDTO> GetCoordinatesByGraphId(int graphId);
     }
 }

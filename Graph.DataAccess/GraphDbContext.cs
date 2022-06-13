@@ -18,6 +18,7 @@ namespace Graph.DataAccess
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<Vector> Vectors { get; set; }
         public DbSet<VectorItem> VectorItems { get; set; }
+        public DbSet<Coordinates> Coordinates { get; set; }
 
         public GraphDbContext(DbContextOptions<GraphDbContext> options)
             :base(options)

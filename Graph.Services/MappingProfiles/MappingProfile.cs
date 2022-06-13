@@ -2,6 +2,7 @@
 using Graph.Data.Entities;
 using Graph.Services.DTOs;
 using Graph.Services.DTOs.Vector;
+using Graph.Services.DTOs.Vertex;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,6 +72,12 @@ namespace Graph.Services.MappingProfiles
                 .ForMember(dest => dest.Value, y => y.MapFrom(src => src.Value))
                 .ForMember(dest => dest.Weight, y => y.MapFrom(src => src.Weight))
                 .ForMember(dest => dest.Type, y => y.MapFrom(src => src.Type));
+
+            CreateMap<Coordinates, CoordinatesItemDTO>()
+                .ForMember(dest => dest.Id, y => y.MapFrom(src => src.Id))
+                .ForMember(dest => dest.XCoordinate, y => y.MapFrom(src => src.XCoordinate))
+                .ForMember(dest => dest.YCoordinate, y => y.MapFrom(src => src.YCoordinate))
+                .ForMember(dest => dest.BlockId, y => y.MapFrom(src => src.BlockId));
 
         }
     }

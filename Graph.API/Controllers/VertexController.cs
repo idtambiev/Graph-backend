@@ -27,5 +27,20 @@ namespace Graph.API.Controllers
             return Ok();
         }
 
+        [HttpPost("save-coordinates")]
+        [Authorize]
+        public async Task<IActionResult> SaveCoordinates([FromBody] CoordinatesDTO dto)
+        {
+            await _service.SaveCoordinates(dto);
+            return Ok();
+        }
+
+        [HttpGet("get-coordinates")]
+        [Authorize]
+        public async Task<IActionResult> GetCoordinates([FromQuery]int graphId)
+        {
+            var result = await _service.GetCoordinatesByGraphId(graphId);
+            return Ok(result);
+        }
     }
 }

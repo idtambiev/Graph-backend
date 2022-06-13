@@ -24,6 +24,10 @@ namespace Graph.DataAccess.Configuration
                 .WithOne(x => x.Block)
                 .HasForeignKey(x => x.BlockId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(x => x.Coordinates)
+                .WithOne(x => x.Block)
+                .HasForeignKey<Coordinates>(x => x.BlockId);
         }
     }
 }

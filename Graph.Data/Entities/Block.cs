@@ -17,6 +17,7 @@ namespace Graph.Data.Entities
         public bool IsActive { get; set; }
         public List<Relation> Relations { get; set; }
         public GraphEntity Graph { get; set; }
+        public Coordinates Coordinates { get; set; }
 
 
         public Block Create(int graphId, string value)

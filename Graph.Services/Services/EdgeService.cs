@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Graph.Data.Entities;
 using Graph.DataAccess.Interfaces;
 using Graph.Services.DTOs.Edge;
 using Graph.Services.Interfaces;
@@ -20,7 +21,10 @@ namespace Graph.Services.Services
 
         public async Task CreateEdge(CreateEdgeDTO dto)
         {
+            //var newRelation = new Relation().Create(dto);
 
+            //await _repo.Context.Relations.AddAsync(newRelation);
+            //await _repo.Context.SaveChangesAsync();
         }
     }
 }
